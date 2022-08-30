@@ -1,0 +1,88 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Produccion
+@{ Layout = null; }
+
+
+<h1>@ViewBag.Titulo</h1>
+<br />
+
+<style>
+    span.text-danger.field-validation-error, #Nombre-error, #Descripcion-error, #FechaSalida-error {
+        font-size: 12px;
+    }
+</style>
+
+<input type="hidden" asp-for="ProduccionId" />
+<input type="hidden" asp-for="Estado" />
+
+<body style="background-color: #eee;">
+
+    <form asp-action="Editar" id="formulario" onsubmit="return jQueryAjaxPost(this, 'Editar Produccion','¿Desea Editar la producción?'); ">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="column">
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input type="hidden" asp-for="ProduccionId" />
+                    <input type="text" asp-for="Nombre" class="input-editar form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="form-group column2">
+                    <label asp-for="FechaRegistro" class="control-label"></label>
+                    <input type="date" asp-for="FechaRegistro" class="input-editar form-control" />
+                    <span asp-validation-for="FechaRegistro" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="form-group ">
+                    <label asp-for="FechaSalida" class="control-label"></label>
+                    <input type="date" asp-for="FechaSalida" class="input-editar form-control" />
+                    <span asp-validation-for="FechaSalida" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="form-group column2">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input type="text" asp-for="Descripcion" class="input-editar form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" form-group">
+                <label asp-for="FaseId" class="control-label"></label>
+                <select asp-for="FaseId" asp-items="ViewBag.Fases" class="input-editar-td form-control">
+                    <option disabled selected>----Seleccione----</option>
+                </select>
+                <span asp-validation-for="FaseId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+        <center>
+            <div class="form-group">
+                <input type="submit" value="Editar producción" class="btn boton-editar" />
+            </div>
+        </center>
+        <br />
+    </form>
+
+</body>
+
+@*<form asp-action="Crear">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="from-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input type="text" asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </form>*@
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

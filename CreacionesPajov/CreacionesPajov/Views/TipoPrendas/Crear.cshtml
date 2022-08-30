@@ -1,0 +1,42 @@
+﻿@model CreacionesPajov.WEB.Models.Dtos.TipoPrendas.TipoPrendaDto
+
+<br />
+
+@{
+    Layout = null;
+}
+<link rel="icon" href="~/adminlte/dist/img/fav.ico">
+<body style="background-color: #eee;">
+  <br />
+    <form asp-action="Crear" id="formulario" onsubmit="return jQueryAjaxPost (this, 'Crear Tipo Prenda','¿Desea crear el tipo de prenda?'); ">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input type="text" asp-for="Nombre" class="input-crear-td form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+
+        <br />
+        <center>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn boton-crear" />
+            </div>
+        </center>
+        <br />
+    </form>
+    @*                </div>
+            </div>
+        </div>*@
+</body>
+
+
+@*<form asp-action="Crear">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="from-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input type="text" asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </form>*@
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

@@ -1,0 +1,125 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Tela
+@{Layout = null; }
+
+<h1>@ViewBag.Titulo</h1>
+<br />
+
+<style>
+    span.text-danger.field-validation-error, #Nombre-error, #Apellido-error, #TipoDocumentoId-error, #Documento-error, #Telefono-error, #Edad-error, #Cargo-error, #Email-error {
+        font-size: 13px;
+    }
+</style>
+
+
+<input type="hidden" asp-for="TelaId" />
+<input type="hidden" asp-for="ColorTelaId" />
+<input type="hidden" asp-for="ProveedorTelaId" />
+<body style="background-color: #eee;">
+    <form asp-action="Editar" id="formulario" onsubmit="return jQueryAjaxPost(this, 'Editar tela','¿Desea Editar la tela?'); ">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="column">
+                <div class="form-group">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input type="hidden" asp-for="TelaId" />
+                    <input type="text" asp-for="Descripcion" class="input-editar form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="form-group column2">
+                    <label asp-for="Cantidad" class="control-label"></label>
+                    <input type="text" asp-for="Cantidad" class="input-editar form-control" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="EmpresaEmpaque" class="control-label"></label>
+                <input type="text" asp-for="EmpresaEmpaque" class="input-editar form-control" />
+                <span asp-validation-for="EmpresaEmpaque" class="text-danger"></span>
+            </div>
+
+            <div class="form-group column2">
+                <label asp-for="EmpresaRevision" class="control-label"></label>
+                <input type="text" asp-for="EmpresaRevision" class="input-editar form-control" />
+                <span asp-validation-for="EmpresaRevision" class="text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="Observaciones" class="control-label"></label>
+                <input type="text" asp-for="Observaciones" class="input-editar form-control" />
+                <span asp-validation-for="Observaciones" class="text-danger"></span>
+            </div>
+
+            <div class="form-group column2">
+                <label asp-for="Referencia" class="control-label"></label>
+                <input type="text" asp-for="Referencia" class="input-editar form-control" />
+                <span asp-validation-for="Referencia" class="text-danger"></span>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="Tejido" class="control-label"></label>
+                <input type="text" asp-for="Tejido" class="input-editar form-control" />
+                <span asp-validation-for="Tejido" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class=" form-group column2">
+                    <label asp-for="ProveedorTelaId" class="control-label"></label>
+                    <select asp-for="ProveedorTelaId" asp-items="ViewBag.ProveedorTelas" class="input-editar form-control">
+                        <option disabled selected>----Seleccione----</option>
+                    </select>
+                    <span asp-validation-for="ProveedorTelaId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class=" form-group">
+                <label asp-for="ColorTelaId" class="control-label"></label>
+                <select asp-for="ColorTelaId" asp-items="ViewBag.ColoresTelas " class="input-editar-td form-control">
+                    <option disabled selected>----Seleccione----</option>
+                </select>
+                <span asp-validation-for="ColorTelaId" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        @*<div class="form-group column2">
+            <label asp-for="Fecha" class="control-label"></label>
+            <input type="date" asp-for="Fecha" class="input-editar form-control" />
+            <span asp-validation-for="Fecha" class="text-danger"></span>
+        </div>*@
+        </div>
+        <center>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Editar Tela" class="boton-editar btn" />
+            </div>
+            <br />
+        </center>
+    </form>
+
+</body>
+
+@*<form asp-action="Crear">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="from-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input type="text" asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </form>*@
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

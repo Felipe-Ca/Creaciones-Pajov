@@ -1,0 +1,63 @@
+﻿.h1 {
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    font-weight: bold;
+    animation: type 8s steps(76, end);
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes type {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    to {
+        opacity: .0;
+    }
+}
+
+::selection {
+    background: transparent;
+}
+
+.logo-animation {
+    position: absolute;
+    -moz-transform: rotate(-8deg);
+    -o-transform: rotate(-8deg);
+    -webkit-transform: rotate(-8deg);
+    transform: rotate(-8deg);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.logo-animation {
+    -webkit-animation: 10s rotate linear infinite;
+    animation: 10s rotate linear infinite;
+    float: center;
+}
+

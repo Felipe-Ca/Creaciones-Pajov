@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="~/adminlte/dist/img/fav.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    .container {
+        background-color: #F4F4F4;
+    }
+
+    .contenedor-principal {
+        width: 95%;
+        height: 100%;
+        background-color: #F4F4F4;
+    }
+
+    h1, h2, h3, p {
+        font-family: Gravity;
+    }
+
+    h6 {
+        font-weight: normal;
+        color: #AFAFAF;
+    }
+
+    .contenedor-seccion {
+        padding: 20px 20px 20px 20px;
+        width: 95%;
+        height: 100%;
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0.1, 0.1);
+    }
+
+    .contenedor-seccion2 {
+        padding: 40px 30px 30px 20px;
+        width: 90%;
+        height: 300px;
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0.2, 0.2);
+    }
+
+    .btn-dash {
+        width: 85%;
+        height: 60px;
+        background-color: #272727;
+        color: white;
+        padding-top: 18px;
+    }
+
+        .btn-dash:hover {
+            background-color: #404040;
+            transition: 0.3s;
+            color: white;
+        }
+
+    .btn-dash-2 {
+        width: 85%;
+        height: 80px;
+        background-color: transparent;
+        color: black;
+        border: 1px solid black;
+        padding-top: 25px;
+    }
+
+        .btn-dash-2:hover {
+            background-color: #404040;
+            transition: 0.3s;
+            color: white;
+            background-color: black;
+        }
+
+    .btn-est {
+        width: 85%;
+        height: 60px;
+        background-color: transparent;
+        color: #26798E;
+        border-radius: 50px;
+        font-weight: bold;
+        border: solid #26798E;
+    }
+
+    .btn-prod {
+        border: 2px solid #26798E;
+        color: #26798E;
+        font-weight: bold;
+        border-radius: 18px;
+        width: 170px;
+    }
+
+        .btn-prod:hover {
+            background-color: #404040;
+            transition: 0.3s;
+            color: white;
+            background-color: #26798E;
+        }
+
+
+
+    .btn-dash-3 {
+        width: 85%;
+        height: 80px;
+        background-color: transparent;
+        color: #272727;
+        border: 2px solid #272727;
+        font-weight: bold;
+        border-radius: 40px;
+        padding-top: 25px;
+    }
+
+        .btn-dash-3:hover {
+            background-color: #404040;
+            transition: 0.3s;
+            color: white;
+            background-color: #272727;
+        }
+
+    .container-fluid, .content {
+        background-color: #F4F4F4;
+    }
+
+    .texto {
+        padding-top: 110px;
+    }
+
+    .hidden {
+        overflow: hidden;
+    }
+
+    .container-p {
+        position: absolute;
+        background: transparent;
+        color: #fff;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        z-index: 100;
+    }
+</style>
+
+<body class="hidden" style="background-color: #F4F4F4;">
+    <center>
+        <div class="container-p" id="reload">
+            <img class="animacion" src="~/adminlte/dist/img/logo transparente.png" />
+        </div>
+    </center>
+
+    <div style="background-color: #F4F4F4;" class="container">
+        <div style=" margin: 30px 20px 20px 20px; width: 95%; height: 100%;" class="contenedor-principal">
+            <h4 style="color: black; font-family: Gravity; font-size:20px;" class="h1">Siempre es bueno tenerte por aquí \(≧u≦)/</h4>
+            <p>Comencemos~</p>
+
+            <div class="contenedor-seccion">
+                <div class="row">
+                    <div class="col">
+                        <h6> Bienvenido a Creaciones PAJOV</h6><br />
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Hecha un vistazo por todos los apartados del aplicativo y comienza a gestionar todo una producción.<br />
+                                    Recuerda siempre manejar buenas prácticas a la hora de llenar los registros, para evitar confusiones
+                                    a largo plazo.
+                                </p>
+                            </div>
+
+                        </div> <br />
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col">
+                    <div style=" padding: 30px 5% 40px 15%;" class="contenedor-seccion2">
+                        <div class="row">
+                            <div class="col">
+                                <h6> Módulo Administradores</h6>
+                                <br />
+                                <div class="row">
+                                    <div class="col">
+                                        <a asp-action="Index" asp-controller="Usuarios" class="btn btn-dash-2">Gestionar Usuarios</a>
+                                        <br /><br />
+                                        <a asp-action="Index" asp-controller="Roles" class="btn btn-dash-2">Crear Roles</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="col">
+                    <div style=" padding: 70px 5% 40px 15%;" class="contenedor-seccion2">
+                        <div class="row">
+                            <div class="col">
+                                <h6> Módulo Empleados</h6>
+                                <br />
+                                <div class="row">
+                                    <div class="col">
+                                        <a asp-action="Index" asp-controller="Empleados" class="btn btn-dash-2">Gestionar Empleados</a>
+                                        <br /><br />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+
+            <div style="padding-left: 8%" class="contenedor-seccion">
+                <div class="row">
+                    <div class="col">
+                        <h6> Módulo Proveedores</h6>
+                        <br />
+                        <div class="row">
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="ProveedorTelas" class="btn btn-dash">Proveedor de Telas</a>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="ProveedorHilos" class="btn btn-dash">Proveedor de Hilos</a>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <br />
+            <div style="padding-left: 5%" class="contenedor-seccion">
+                <div class="row">
+                    <div class="col">
+                        <h6> Módulo Producción</h6>
+                        <br />
+                        <div class="row">
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="Produccion" class="btn btn-prod">Producciones</a>
+                            </div> <br />
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="Fases" class="btn btn-prod">Fases</a>
+                            </div> <br />
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="SubFases" class="btn btn-prod">Subfases</a>
+                            </div> <br />
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="Operaciones" class="btn btn-prod">Remisiones</a>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="ColorTelas" class="btn btn-prod">Color Telas</a>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="ColorHilos" class="btn btn-prod">Color Hilos</a>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="TipoPrendas" class="btn btn-prod">Tipo prendas</a>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" asp-controller="ControlLotes" class="btn btn-prod">Control lotes</a>
+                            </div>
+                        </div><br />
+                              <div class="row">
+                                  <div class="col-3">
+                                      <a asp-action="Index" asp-controller="Tela" class="btn btn-prod">Telas</a>
+                                  </div>
+                                  <div class="col-3">
+                                      <a asp-action="Index" asp-controller="Hilo" class="btn btn-prod">Hilos</a>
+                                  </div>
+                                  <div class="col">
+                                      <a asp-action="Index" asp-controller="DetalleTela" class="btn btn-prod">Detalle telas</a>
+                                  </div>
+                                  <div class="col">
+                                      <a asp-action="Index" asp-controller="DetalleHilo" class="btn btn-prod">Detalle Hilos</a>
+                                  </div>
+                              </div>
+                              <br />
+                              <div class="row">
+                                  <div class="col">
+                                      <a asp-action="Index" asp-controller="Remisiones" class="btn btn-prod">Remisiones</a>
+                                  </div>
+                              </div>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row">
+                <div class="col">
+                    <div style=" padding: 30px 5% 40px 15%; width: 95% !important;" class="contenedor-seccion2">
+                        <div class="row">
+                            <div class="col">
+                                <h6> Módulo Novedades</h6>
+                                <br />
+                                <div class="row">
+                                    <div class="col">
+                                        <br /><br />
+                                        <a asp-action="Index" asp-controller="TipoNovedadEmpleados" class="btn btn-dash-3">Gestionar Novedades de Empleados</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>window.onload = function () {
+            $('#reload').fadeOut();
+            $('.hidden').fadeOut();
+        }</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CreacionesPajov.WEB.Models.Entities.TipoNovedadEmpleado>
+@section Styles{
+
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index">
+            <div class="col-md-7">
+                <h2>Gestión de <b> @ViewBag.Titulo</b></h2>
+            </div>
+            <br />
+            <div class="col-md-7">
+                <a onclick="mostrarModal('@Url.Action("Crear","TipoNovedadEmpleados",null,Context.Request.Scheme)','Crear Novedad Empleado')" class="btn btn-emp">Crear novedad empleado</a>
+            </div>
+            </div>
+
+            @if (Model.Count() == 0)
+            {
+                <br />
+                <p>No existen Novedades De Empleado</p>
+            }
+            else
+            {
+                <br />
+                <div class="contenedor-tabla">
+                <table class="table table-striped" id="tabla">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.EmpleadoId)</th>
+                            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                         
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var tiponovedadempleado in Model)
+                        {
+                            <tr>
+                                <td>@tiponovedadempleado.Empleados.Nombre</td>
+                                <td>@tiponovedadempleado.Descripcion</td>
+
+                              
+
+                                <td>
+                                    <a class="text-success" href="javascript:mostrarModal('@Url.Action("Detalle","TipoNovedadEmpleados",new {id=tiponovedadempleado.TipoNovedadEmpleadoId},Context.Request.Scheme)','Detalle novedad empleado')"> <i title="Detalle" class="color-icono1 fa-solid fa-magnifying-glass-plus"></i></a> |
+                                    <a href="javascript:mostrarModal('@Url.Action("Editar","TipoNovedadEmpleados",new {id=tiponovedadempleado.TipoNovedadEmpleadoId},Context.Request.Scheme)','Editar novedad empleado')"><i title="Editar" class="color-icono2 fa-solid fa-user-pen"></i>|</a>
+                                    
+
+
+
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                    </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+
+    <script src="~/js/tabla.js"></script>
+
+    <script>
+       @if (TempData["Accion"]!=null && TempData["Accion"].ToString().Equals("Guardar"))
+       {
+          <text>
+            alertify.set('notifier','position','top-right');
+            alertify.notify('@TempData["Mansaje"] ', 'success', 5, function( ) {
+
+            });
+          </text>
+       }
+    </script>
+
+
+}

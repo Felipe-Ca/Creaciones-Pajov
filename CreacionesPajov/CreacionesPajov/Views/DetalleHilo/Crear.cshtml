@@ -1,0 +1,98 @@
+﻿@using CreacionesPajov.WEB.Models.Entities
+@model List<Hilo>
+    <div style="margin: 50px 50px 50px 50px;"class="card">
+        <div class="card-body">
+            <div class="row">
+                <div style="margin-left: 5%;" class="col-4">
+                    <div class="form-group">
+                        <label>
+                            Hilos
+                        </label>
+                        <select onchange="cantidad(this)" id="HiloId" class="input-crear-det form-control">
+                            <option>Seleccione</option>
+
+                            @foreach (Hilo item in Model)
+                            {
+                            <option cantidad="@item.Cantidad" value="@item.HiloId">@item.Descripcion</option>}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cantidad</label>
+                        <input readonly type="number" class="input-crear-det form-control" id="Cantidad" />
+                    </div>
+
+                    <button onclick="agregar()" class="btn boton-crear" type="button">Agregar</button>
+                </div>
+
+                <div style="margin-left: 5%;"class="col-6">
+                    <form asp-action="Guardar" method="post">
+
+                        <label>Descripcion Del Lote</label>
+                        <input class="input-crear-det-2"name="descripcion" id="Descripcion" />
+                        <br />
+                        <table id="TablaHilo" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Código Hilo
+                                    </th>
+                                    <th>
+                                        Descripción Hilo
+                                    </th>
+                                    <th>
+                                        Cantidad
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3" class="text-center">
+                                        <h3>Cantidad Hilos: <span id="total"></span> </h3>
+                                        <input type="hidden" name="total" id="Total" />
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+                        <button type="submit" class="btn boton-crear  btn-block">Guardar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+    <script>
+    function cantidad(e) {
+            let _cantidad = $(e).find("option:selected");
+            $("#Cantidad").val(_cantidad.attr("cantidad"));
+        }
+
+        var cont = 0;
+        function agregar() {
+            let hilo = $("#HiloId option:selected");
+            let total = $("#Total").val() || 0;
+            let descripcion = $("#Descripcion").val()
+            $("#TablaHilo").append(`
+                        <tr>
+                            <input type="hidden" name="Hilos[${cont}].HiloId" value="${hilo.val()}"/>
+                            <td>${hilo.val()}</td>
+                            <td>${hilo.text()}</td>
+                            <td>${hilo.attr("cantidad")}</td>
+                        </tr>
+                        `);
+
+            let suma = parseInt(total) + parseInt(hilo.attr("cantidad"))
+            $("#total").text(suma);
+            $("#Total").val(suma);
+            $("#descripcion").text();
+            $("#Descripcion").val();
+            cont++;
+
+        }</script>
+    }

@@ -1,0 +1,72 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Tela
+@{
+    Layout = null;
+}
+
+
+
+
+<body style="background-color: #eee;">
+    <form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <center>
+            <br />
+            <table style="width:650px;" class="detalle table-striped">
+                <tbody>
+                    <tr>
+                        <td><label asp-for="Descripcion" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Descripcion </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Cantidad" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Cantidad</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="EmpresaEmpaque" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.EmpresaEmpaque</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="EmpresaRevision" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.EmpresaRevision</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="FechaRegistro" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.FechaRegistro</div></td>
+                    </tr>
+
+                    <tr>
+                        <td><label asp-for="Observaciones" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Observaciones</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Referencia" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Referencia</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Tejido" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Tejido</div></td>
+                    </tr>
+
+                    
+
+                    <tr>
+                        <td><label asp-for="ColorTelaId" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.ColorTelas.Nombre</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ProveedorTelaId" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.ProveedorTelas.Nombre</div></td>
+                    </tr>
+
+
+
+
+
+                </tbody>
+            </table><br />
+        </center>
+    </form>
+</body>
+
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

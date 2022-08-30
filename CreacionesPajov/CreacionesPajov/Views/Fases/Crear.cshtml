@@ -1,0 +1,48 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Fase
+
+<br />
+@{ Layout = null; }
+
+<style>
+    span.text-danger.field-validation-error, #Nombre-error, #Descripcion-error {
+        font-size: 12px;
+    }
+</style>
+
+
+<body style="background-color: #eee;">
+
+    <form asp-action="Crear" id="formulario" onsubmit="return jQueryAjaxPost (this, 'Crear Fase','¿Desea crear la fase?'); ">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="column">
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input type="text" asp-for="Nombre" class="input-crear form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="form-group column2">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input type="text" asp-for="Descripcion" class="input-crear form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <center>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn boton-crear" />
+            </div>
+        </center>
+        <br />
+    </form>
+
+</body>
+
+
+
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

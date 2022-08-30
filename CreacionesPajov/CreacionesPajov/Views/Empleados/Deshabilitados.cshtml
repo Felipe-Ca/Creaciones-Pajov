@@ -1,0 +1,123 @@
+﻿@model IEnumerable<CreacionesPajov.WEB.Models.Entities.Empleado>
+@section Styles{
+
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index">
+                <div class="col-md-7">
+                    <br />
+                    <h2>Gestión de <b> @ViewBag.Titulo</b></h2>
+                </div>
+                <div class="col-md-7">
+                    <a asp-controller="Empleados" asp-action="Index" class="btn btn-emp">Empleados Activos</a>
+                    <br />
+
+                </div>
+                <br />
+            </div>
+
+            @if (Model.Count() == 0)
+            {<br />
+
+                <p>No existen Empleados Deshabilitados</p>
+            }
+            else
+            {
+                <br />
+                <div class="contenedor-tabla">
+                    <table class="table table-striped" id="tabla">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                                <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                                @*<th>@Html.DisplayNameFor(model => model.TipoDocumentoId)</th>*@
+                                @*<th>@Html.DisplayNameFor(model => model.Documento)</th>*@
+                                @*<th>@Html.DisplayNameFor(model=>model.Edad)</th>*@
+                                @*<th>@Html.DisplayNameFor(model=>model.Email)</th>*@
+                                @*<th>@Html.DisplayNameFor(model=>model.Telefono)</th>*@
+                                @*<th>@Html.DisplayNameFor(model => model.Cargo)</th>*@
+                                @*<th>@Html.DisplayNameFor(model=>model.Fecha)</th>*@
+                                <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="letra-table">
+                            @foreach (var empleado in Model)
+
+                            {
+                                <tr>
+                                    <td>@empleado.Nombre</td>
+                                    <td>@empleado.Apellido</td>
+                                    @*<td>@empleado.TiposDocumento.Nombre</td>*@
+                                    @*<td>@empleado.Documento</td>*@
+                                    @*<td>@empleado.Edad</td>*@
+                                    @*<td>@empleado.Email</td>*@
+                                    @*<td>@empleado.Telefono</td>*@
+                                    @*<td>@empleado.Cargo</td>*@
+                                    @*<td>@empleado.Fecha</td>*@
+                                    @*<td>@empleado.Estado</td>*@
+
+                                    @if (empleado.Estado == true)
+                                    {
+                                        <td><span class="badge badge-act">Habilitado</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="badge badge-desc">Deshabilitado</span></td>
+                                    }
+
+                                    <td>
+                                        @*<a class="text-success" href="javascript:mostrarModal('@Url.Action("Detalle","Empleados",new {id=empleado.EmpleadoId},Context.Request.Scheme)','Detalle empleado')"> <i title="Detalle" class="color-icono1 fa-solid fa-magnifying-glass-plus"></i></a> |
+                                            <a href="javascript:mostrarModal('@Url.Action("Editar","Empleados",new {id=empleado.EmpleadoId},Context.Request.Scheme)','Editar empleado')"><i title="Editar" class="color-icono2 fa-solid fa-user-pen"></i>|</a>*@
+                                        @if (empleado.Estado == true)
+                                        {
+
+                                            <a class="text-success" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Empleados",new {id=empleado.EmpleadoId},Context.Request.Scheme)')"> <i title="Deshabilitar" class="color-icono1 fa-solid fa-toggle-on"></i></a>
+                                        }
+
+                                        else
+                                        {
+
+                                            <a class="text-secondary" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Empleados",new {id=empleado.EmpleadoId},Context.Request.Scheme)')"> <i title="Habilitar" class="color-icono1 fa-solid fa-toggle-off"></i></a>
+
+                                        }
+
+
+
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+
+    <script src="~/js/tabla.js"></script>
+
+    <script>
+       @if (TempData["Accion"]!=null && TempData["Accion"].ToString().Equals("Guardar"))
+       {
+          <text>
+            alertify.set('notifier','position','top-right');
+            alertify.notify('@TempData["Mansaje"] ', 'success', 5, function( ) {
+
+            });
+          </text>
+       }
+    </script>
+
+
+}

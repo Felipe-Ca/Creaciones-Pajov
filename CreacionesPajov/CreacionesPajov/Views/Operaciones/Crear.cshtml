@@ -1,0 +1,67 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Operacion
+
+<br />
+
+
+@{ Layout = null; }
+
+<body style="background-color: #eee;">
+    <style>
+        span.text-danger.field-validation-error, #Nombre-error, #Descripcion-error, #TipoOperacionId-error, #SAM-error {
+            font-size: 12px;
+        }
+    </style>
+    <form asp-action="Crear" id="formulario" onsubmit="return jQueryAjaxPost (this, 'Crear Operacion','¿Desea crear la operacion?'); ">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input type="text" asp-for="Nombre" class="input-crear form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group column2">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input type="text" asp-for="Descripcion" class="input-crear form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="TipoOperacionId" class="control-label"></label>
+                <select asp-for="TipoOperacionId" asp-items="ViewBag.TiposOperacion" class="input-crear form-control">
+                    <option disabled selected>----Seleccione----</option>
+                </select>
+                <span asp-validation-for="TipoOperacionId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group column2">
+                <label asp-for="SAM" class="control-label"></label>
+                <input type="text" asp-for="SAM" class="input-crear form-control" />
+                <span asp-validation-for="SAM" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+        <center>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn boton-crear" />
+            </div>
+        </center>
+        <br />
+    </form>
+</body>
+
+
+@*<form asp-action="Crear">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="from-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input type="text" asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </form>*@
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

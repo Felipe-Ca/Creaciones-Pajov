@@ -1,0 +1,73 @@
+﻿
+@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+@section Styles{
+
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index">
+            <div class="col-md-7"> 
+                <h2>Gestion de <b>@ViewBag.Titulo</b></h2>
+            </div>
+            <br />
+            <div class="col-md-7"> 
+                <a onclick="mostrarModal('@Url.Action("Crear","Roles",null,Context.Request.Scheme)','Crear rol')" class="btn btn-emp">Crear Rol </a>
+            </div>
+            <br />
+            </div>
+            @if (Model == null || Model.Count == 0)
+            {
+
+            <br />
+                <p>No existen roles</p>
+            }
+            else
+            {
+                <div class="contenedor-tabla">
+                <table class="table table-striped" id="tabla">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var rol in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @rol.Name
+                                </td>
+
+                                <td>
+                                  
+
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/site.js"></script>
+
+    <script src="~/js/tabla.js"></script>
+    <script>
+        @if(TempData["Accion"]!=null && TempData["Accion"].ToString().Equals("Guardar"))
+        {
+            <text>
+        alertify.set('notifier', 'position', 'top-right');
+        alertify.success('@TempData["Mensaje"]');
+            </text>
+        }
+    </script>
+
+}

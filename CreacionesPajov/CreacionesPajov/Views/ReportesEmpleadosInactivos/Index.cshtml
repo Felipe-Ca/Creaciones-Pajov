@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CreacionesPajov.WEB.Models.Entities.Empleado>
+
+@{ Layout = null;}
+
+<style>
+    .Large {
+        width: 20px;
+    }
+
+    #Reporte {
+        width: 1000px;
+        height: 500px;
+    }
+
+    #box {
+        border: 1px solid black;
+    }
+</style>
+
+<div class="content">
+    <br />
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index">
+                <div class="container" id="box">
+                    <div align="center">
+                        <h2>Reporte Empleados Deshabilitados</h2>
+                    </div>
+                    <div align="right">
+                        <p>
+                            Fecha del reporte:
+                            <script>
+                                date = new Date().toLocaleDateString();
+                                document.write(date);
+                            </script>
+                        </p>
+                    </div>
+
+
+                    @if (Model.Count() == 0)
+                    {<br />
+
+                        <p>No existen Empleados Deshabilitados</p>
+                    }
+                    else
+                    {
+                        <br />
+                        <div class="contenedor-tabla">
+                            <table align="center" border="1" class="table table-striped" id="tabla">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                                        <th>@Html.DisplayNameFor(model => model.TipoDocumentoId)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Documento)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Edad)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Cargo)</th>
+                                        <th>@Html.DisplayNameFor(model => model.FechaRegistro)</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="letra-table">
+                                    @foreach (var empleado in Model)
+
+                                    {
+                                        <tr>
+                                            <td>@empleado.Nombre</td>
+                                            <td>@empleado.Apellido</td>
+                                            <td>@empleado.TiposDocumento.Nombre</td>
+                                            <td>@empleado.Documento</td>
+                                            <td>@empleado.Edad</td>
+                                            <td>@empleado.Email</td>
+                                            <td>@empleado.Telefono</td>
+                                            <td>@empleado.Cargo</td>
+                                            <td>@empleado.FechaRegistro</td>
+                                        </tr>
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

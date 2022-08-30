@@ -1,0 +1,90 @@
+﻿@model IEnumerable<CreacionesPajov.WEB.Models.Entities.Hilo>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index">
+                <div class="col-md-7">
+                    <br />
+                    <h2>Gestión de <b> @ViewBag.Titulo</b></h2>
+                </div>
+                <br />
+                <div class="col-md-7">
+                    <a onclick="mostrarModal('@Url.Action("Crear","Hilo",null,Context.Request.Scheme)','Crear Hilo')" class="btn btn-emp">Crear Hilo</a>
+                    <br />
+                </div>
+                <br />
+            </div>
+
+
+            @if (Model.Count() == 0)
+            {<br />
+                <p>No existen Hilos</p>
+            }
+            else
+            {
+                <br />
+                <div class="contenedor-tabla">
+                    <table class="table table-striped" id="tabla">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                                <th>@Html.DisplayNameFor(model => model.Cantidad)</th>
+                                <th>@Html.DisplayNameFor(model => model.Medida)</th>
+                                <th>Acciones</th>
+                                @* <th>@Html.DisplayNameFor(model => model.ColoresHilos)</th>*@
+                                @*<th>@Html.DisplayNameFor(model => model.ProveedoresHilo)</th>*@
+                            </tr>
+                        </thead>
+
+                        <tbody class="letra-table">
+                            @foreach (var hilo in Model)
+
+                            {
+                                <tr>
+                                    <td>@hilo.Descripcion</td>
+                                    <td>@hilo.Cantidad</td>
+                                    <td>@hilo.Medida</td>
+                            
+                                    <td>
+                                        <a class="text-success" href="javascript:mostrarModal('@Url.Action("Detalle","Hilo",new {id=hilo.HiloId},Context.Request.Scheme)','Detalle Hilo')"><i title="Detalle" class="color-icono1 fa-solid fa-magnifying-glass-plus"></i>|</a>
+                                        <a href="javascript:mostrarModal('@Url.Action("Editar","Hilo",new {id=hilo.HiloId},Context.Request.Scheme)','Editar Hilo')"><i title="Editar" class="color-icono2 fa-solid fa-user-pen"></i>|</a>
+
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+
+                    </table>
+                    <br />
+
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts{
+
+    <script src="~/js/tabla.js"></script>
+
+    <script>
+       @if (TempData["Accion"]!=null && TempData["Accion"].ToString().Equals("Guardar"))
+       {
+          <text>
+            alertify.set('notifier','position','top-right');
+            alertify.notify('@TempData["Mansaje"] ', 'success', 5, function( ) {
+
+            });
+          </text>
+       }
+    </script>
+
+
+}

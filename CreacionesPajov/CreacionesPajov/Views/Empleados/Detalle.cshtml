@@ -1,0 +1,60 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Empleado
+@{
+    Layout = null;
+}
+
+
+
+
+<body style="background-color: #eee;">
+    <form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <center>
+            <br />
+            <table style="width:650px;" class="detalle table-striped">
+                <tbody>
+                    <tr>
+                        <td><label asp-for="Nombre" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Nombre </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Apellido" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Apellido</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="TipoDocumentoId" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.TiposDocumento.Nombre</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Documento" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Documento </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Edad" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Edad </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Email" class="control-label"></label></td>
+                        <td> <div class="model-detalle">@Model.Email </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Telefono" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Telefono </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Cargo" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Cargo </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="FechaRegistro" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.FechaRegistro</div></td>
+                    </tr>
+
+                </tbody>
+            </table><br />
+        </center>
+    </form>
+</body>
+
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

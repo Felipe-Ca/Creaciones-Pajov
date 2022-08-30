@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CreacionesPajov.WEB.Models.Entities.ControlLote>
+
+<body>  
+    <div style="margin: 50px 50px 50px 50px;"><h2>Control de Lote</h2></div>  
+    <div style="margin: 30px 100px 100px 100px;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Descripcion
+                    </th>
+
+                    <th>
+                        Total
+                    </th>
+
+                    <th>
+                        Fecha Registro
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+
+            @foreach (var ControlLotes in Model)
+            {
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(d => ControlLotes.IdControlLote)
+            </td>
+            <td>
+                @Html.DisplayFor(d => ControlLotes.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(d => ControlLotes.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(d => ControlLotes.FechaRegistro)
+            </td>
+
+            <td>
+                <a asp-action="ListHilo" asp-route-id="@ControlLotes.IdControlLote" >Listado</a>
+            </td>
+
+
+
+        </tr>
+    </tbody>}
+        </table>
+        <hr />
+        <br />
+        <div class="row">
+            <div class="col-3">
+                <a asp-action="Crear" asp-controller="DetalleHilo" class="btn btn-det">Agregar hilos</a>
+            </div>
+            <div class="col">
+                <a asp-action="Crear" asp-controller="DetalleTela" class="btn btn-det">Agregar telas</a>
+            </div>
+
+
+        </div>
+    </div>
+</body>

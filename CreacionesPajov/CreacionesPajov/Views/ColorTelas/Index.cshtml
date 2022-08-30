@@ -1,0 +1,97 @@
+﻿@model IEnumerable<CreacionesPajov.WEB.Models.Entities.ColorTela>
+@section Styles{
+
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index">
+            <div class="col-md-7">
+                <h2>Gestión de <b> @ViewBag.Titulo</b></h2>
+            </div>
+            <br />
+            <div class="col-md-7">
+                <a onclick="mostrarModal('@Url.Action("Crear","ColorTelas",null,Context.Request.Scheme)','Crear Color De Telas')" class="btn btn-emp">Crear Color De Tela</a>
+            </div>
+            </div>
+
+            @if (Model.Count() == 0)
+            {
+                <br>
+                <p>No existen Colores De Tela</p>
+            }
+            else
+            {
+                <br />
+            <div class="contenedor-tabla">
+                <table class="table table-striped" id="tabla">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ColorTela in Model)
+                        {
+                            <tr>
+                                <td>@ColorTela.Nombre</td>
+                                @*<td>@ColorTela.Estado</td>*@
+
+                                @if (ColorTela.Estado)
+                                {
+                                    <td><span class="badge badge-act">Habilitado</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="badge badge-desc">Deshabilitado</span></td>
+                                }
+
+                                <td>
+                                    <a class="text-success" href="javascript:mostrarModal('@Url.Action("Detalle","ColorTelas",new {id=ColorTela.ColorTelaId},Context.Request.Scheme)','Detalle Color Tela')"><i title="Detalle" class="color-icono1 fa-solid fa-magnifying-glass-plus"></i></a> |
+                                    <a href="javascript:mostrarModal('@Url.Action("Editar","ColorTelas",new {id=ColorTela.ColorTelaId},Context.Request.Scheme)','Editar Color Tela')"><i title="Editarr" class="color-icono2 fa-solid fa-user-pen"></i>|</a>
+                                    @if (ColorTela.Estado)
+                                    {
+                                        <a class="text-success" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","ColorTelas",new {id=ColorTela.ColorTelaId},Context.Request.Scheme)')"> <i title="Deshabilitar" class="color-icono1 fa-solid fa-toggle-on"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="text-secondary" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","ColorTelas",new {id=ColorTela.ColorTelaId},Context.Request.Scheme)')"> <i title="Habilitar" class="color-icono1 fa-solid fa-toggle-off"></i></a>
+
+                                    }
+
+
+
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/js/tabla.js"></script>
+
+    <script>
+       @if (TempData["Accion"]!=null && TempData["Accion"].ToString().Equals("Guardar"))
+       {
+          <text>
+            alertify.set('notifier','position','top-right');
+            alertify.notify('@TempData["Mansaje"] ', 'success', 5, function( ) {
+
+            });
+          </text>
+       }
+    </script>
+
+
+}

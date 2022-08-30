@@ -1,0 +1,107 @@
+﻿@model IEnumerable<CreacionesPajov.WEB.Models.Entities.ProveedorTela>
+@*@section Styles{
+
+}*@
+<div class="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index"> 
+            <div class="col-md-7">
+                <h2>Gestión de <b> @ViewBag.Titulo</b></h2>
+            </div>
+            <br />
+            <div class="col-md-7">
+                <a onclick="mostrarModal('@Url.Action("Crear","ProveedorTelas",null,Context.Request.Scheme)','Crear proveedor tela')" class="btn btn-emp">Crear proveedor tela</a>
+            </div>
+            </div>
+
+            @if (Model.Count() == 0)
+            {
+                <br />
+                <p>No existen Proveedores De Tela</p>
+            }
+            else
+            {
+                <br />
+                <div class="contenedor-index">
+                <table class="table table-striped" id="tabla">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.NIT)</th>
+                            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.Direccion)</th>
+                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var proveedortela in Model)
+                        {
+                            <tr>
+                                <td>@proveedortela.NIT</td>
+                                <td>@proveedortela.Nombre</td>
+                                <td>@proveedortela.Direccion</td>
+                                <td>@proveedortela.Email</td>
+                                <td>@proveedortela.Telefono</td>
+                                @*<td>@proveedortela.Estado</td>*@
+
+                                @if (proveedortela.Estado)
+                                {
+                                    <td><span class="badge badge-act">Habilitado</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="badge badge-desc">Deshabilitado</span></td>
+                                }
+
+                                <td>
+                                    <a class="text-success" href="javascript:mostrarModal('@Url.Action("Detalle","ProveedorTelas",new {id=proveedortela.ProveedorTelaId},Context.Request.Scheme)','Detalle proveedor tela')"> <i title="Detalle" class="color-icono1 fa-solid fa-magnifying-glass-plus"></i></a> |
+                                    <a href="javascript:mostrarModal('@Url.Action("Editar","ProveedorTelas",new {id=proveedortela.ProveedorTelaId},Context.Request.Scheme)','Editar proveedor tela')"><i title="Editar" class="color-icono2 fa-solid fa-user-pen"></i>|</a>
+                                    @if (proveedortela.Estado)
+                                    {
+                                        <a class="text-success" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","ProveedorTelas",new {id=proveedortela.ProveedorTelaId},Context.Request.Scheme)')"> <i title="Deshabilitar" class="color-icono1 fa-solid fa-toggle-on"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="text-secondary" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","ProveedorTelas",new {id=proveedortela.ProveedorTelaId},Context.Request.Scheme)')"> <i title="Habilitar" class="color-icono1 fa-solid fa-toggle-off"></i></a>
+
+                                    }
+
+
+
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                    </div>
+
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+
+    <script src="~/js/tabla.js"></script>
+
+    <script>
+       @if (TempData["Accion"]!=null && TempData["Accion"].ToString().Equals("Guardar"))
+       {
+          <text>
+            alertify.set('notifier','position','top-right');
+            alertify.notify('@TempData["Mansaje"] ', 'success', 5, function( ) {
+            });
+          </text>
+       }
+    </script>
+
+
+}

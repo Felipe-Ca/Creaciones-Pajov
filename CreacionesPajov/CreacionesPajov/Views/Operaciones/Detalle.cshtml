@@ -1,0 +1,42 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Operacion
+@{
+    Layout = null;
+}
+
+<body style="background-color: #eee;">
+
+<form>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <center><br />
+        <table class="detalle table-striped">
+            <tbody>
+                <tr>
+                    <td><label asp-for="Nombre" class="control-label"></label></td>
+                    <td>@Model.Nombre</td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Descripcion" class="control-label"></label></td>
+                    <td>@Model.Descripcion</td>
+                </tr>
+                <tr>
+                    <td><label asp-for="TipoOperacionId" class="control-label"></label></td>
+                    <td>@Model.TiposOperacion.Nombre</td>
+                </tr>
+                <tr>
+                    <td><label asp-for="SAM" class="control-label"></label></td>
+                    <td>@Model.SAM</td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+
+    <br />
+</form>
+    @*              </div>
+            </div>
+        </div>*@
+</body>
+
+
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

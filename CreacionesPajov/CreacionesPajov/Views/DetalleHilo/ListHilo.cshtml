@@ -1,0 +1,56 @@
+﻿@using CreacionesPajov.WEB.Models.Entities
+@model List<DetalleHilo>
+
+
+<body>
+    <div style="margin: 50px 50px 50px 50px;"><h2>Listado detalle hilo</h2></div>
+    <div style="margin: 30px 100px 100px 100px;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Descripcion
+                    </th>
+
+                    <th>
+                        Cantidad
+                    </th>
+
+                </tr>
+            </thead>
+
+            @foreach (var DetalleHiloss in Model)
+            {
+<tbody>
+    <tr>
+        <td>
+            @Html.DisplayFor(i => DetalleHiloss.HiloId)
+        </td>
+        <td>
+            @Html.DisplayFor(i => DetalleHiloss.Hilo.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(i => DetalleHiloss.Hilo.Cantidad)
+        </td>
+    <tr>
+
+</tbody>            }
+
+        </table>
+        <hr />
+        <br />
+        <div class="row">
+            <div class="col-3">
+                <a asp-action="Crear" asp-controller="DetalleHilo" class="btn btn-det">Agregar hilos</a>
+            </div>
+            <div class="col">
+                <a asp-action="Crear" asp-controller="DetalleTela" class="btn btn-det">Agregar telas</a>
+            </div>
+
+
+        </div>
+    </div>
+</body>

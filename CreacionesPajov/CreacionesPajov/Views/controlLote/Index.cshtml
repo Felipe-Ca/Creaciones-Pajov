@@ -1,0 +1,91 @@
+﻿@using CreacionesPajov.WEB.Models.Entities
+@model List<ControlLote>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label>
+                        Telas
+                    </label>
+                    <select  id="IdControlLote" class="form-control">
+                        <option>Seleccione</option>
+
+                        @foreach (ControlLote item in Model)
+                        {
+            <option value="@item.IdControlLote">@item.</option>
+}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Cantidad</label>
+                    <input readonly type="number" class="form-control" id="Cantidad" />
+                </div>
+
+                <button onclick="agregar()" class="btn btn-success" type="button">Agregar</button>
+            </div>
+
+            <div class="col-8">
+                <form asp-action="Guardar" method="post">
+                    <table id="TablaTela" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Codigo Tela
+                                </th>
+                                <th>
+                                    Descripcion Tela
+                                </th>
+                                <th>
+                                    Cantidad
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" class="text-center">
+                                    <h3>Cantidad Telas: <span id="total"></span> </h3>
+                                    <input type="hidden" name="total" id="Total" />
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                    <button type="submit" class="btn btn-success btn-block">Guardar </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>function cantidad(e) {
+            let _cantidad = $(e).find("option:selected");
+            $("#Cantidad").val(_cantidad.attr("cantidad"));
+        }
+
+        var cont = 0;
+        function agregar() {
+            let tela = $("#TelaId option:selected");
+            let total = $("#Total").val() || 0;
+            $("#TablaTela").append(`
+                    <tr>
+                        <input type="hidden" name="Telas[${cont}].TelaId" value="${tela.val()}"/>
+                        <td>${tela.val()}</td>
+                        <td>${tela.text()}</td>
+                        <td>${tela.attr("cantidad")}</td>
+                    </tr>
+                    `);
+
+            let suma = parseInt(total) + parseInt(tela.attr("cantidad"))
+            $("#total").text(suma);
+            $("#Total").val(suma);
+            cont++;
+
+        }</script>
+}

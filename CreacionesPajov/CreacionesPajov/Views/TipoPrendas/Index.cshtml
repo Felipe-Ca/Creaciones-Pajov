@@ -1,0 +1,80 @@
+﻿<link rel="icon" href="~/adminlte/dist/img/fav.ico">
+@model IEnumerable<CreacionesPajov.WEB.Models.Entities.TipoPrenda>
+@section Styles{
+
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <div class="contenedor-index">
+            <div class="col-md-7">
+                <h2>Gestión de <b> @ViewBag.Titulo</b></h2>
+            </div>
+            <br />
+            <div class="col-md-7">
+                <a onclick="mostrarModal('@Url.Action("Crear","TipoPrendas",null,Context.Request.Scheme)','Crear Tipo Prenda')" class="btn btn-emp">Crear Tipo Prenda</a>
+            </div>
+            </div>
+
+            @if (Model.Count() == 0)
+            {
+                <br />
+                <p>No existen Tipo De Prenda</p>
+            }
+            else
+            {
+                <br />
+                <div class="contenedor-tabla">
+                <table class="table table-striped" id="tabla">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                            <th>Acciones</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var TipoPrenda in Model)
+                        {
+                            <tr>
+                                <td>@TipoPrenda.Nombre</td>
+                               
+
+                               
+
+
+                                <td>
+                                    <a class="text-success" href="javascript:mostrarModal('@Url.Action("Detalle","TipoPrendas",new {id=TipoPrenda.TipoPrendaId},Context.Request.Scheme)','Detalle Tipo Prenda')"> <i title="Detalle" class="color-icono1 fa-solid fa-magnifying-glass-plus"></i></a> |
+                                    <a href="javascript:mostrarModal('@Url.Action("Editar","TipoPrendas",new {id=TipoPrenda.TipoPrendaId},Context.Request.Scheme)','Editar Tipo Prenda')"><i title="Editar" class="color-icono2 fa-solid fa-user-pen"></i></a>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                    </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/js/tabla.js"></script>
+
+    <script>
+       @if (TempData["Accion"]!=null && TempData["Accion"].ToString().Equals("Guardar"))
+       {
+          <text>
+            alertify.set('notifier','position','top-right');
+            alertify.notify('@TempData["Mansaje"] ', 'success', 5, function( ) {
+
+            });
+          </text>
+       }
+    </script>
+
+
+}

@@ -1,0 +1,82 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Hilo
+
+<br />
+
+@{ Layout = null; }
+
+<style>
+    span.text-danger.field-validation-error, #Nombre-error, #Apellido-error, #TipoDocumentoId-error, #Documento-error, #Telefono-error, #Edad-error, #Cargo-error, #Email-error {
+        font-size: 13px;
+    }
+</style>
+
+<body style="background-color: #eee;">
+
+
+    <form asp-action="Crear" id="formulario" onsubmit="return jQueryAjaxPost (this, 'Crear hilo','¿Desea crear el hilo?'); ">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="column">
+                <div class="form-group">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input type="text" asp-for="Descripcion" class="input-crear form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="form-group column2">
+                    <label asp-for="Cantidad" class="control-label"></label>
+                    <input type="text" asp-for="Cantidad" class="input-crear form-control" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" form-group">
+                <label asp-for="ColorHiloId" class="control-label"></label>
+                <select asp-for="ColorHiloId" asp-items="ViewBag.ColoresHilos " class="input-crear-td form-control">
+                    <option disabled selected>----Seleccione----</option>
+                </select>
+                <span asp-validation-for="ColorHiloId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" form-group">
+                <label asp-for="ProveedorHiloId" class="control-label"></label>
+                <select asp-for="ProveedorHiloId" asp-items="ViewBag.TiposProveedores" class="input-crear-td form-control">
+                    <option disabled selected>----Seleccione----</option>
+                </select>
+                <span asp-validation-for="ProveedorHiloId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="form-group">
+                    <label asp-for="Medida" class="control-label"></label>
+                    <input type="text" asp-for="Medida" class="input-crear-td form-control" />
+                    <span asp-validation-for="Medida" class="text-danger"></span>
+                </div>
+            </div>
+        </div><br />
+            <center>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn boton-crear" />
+            </div>
+            </center>
+</form>
+
+</body>
+
+@*<form asp-action="Crear">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="from-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input type="text" asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </form>*@
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

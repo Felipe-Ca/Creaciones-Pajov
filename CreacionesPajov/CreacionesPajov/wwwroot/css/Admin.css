@@ -1,0 +1,46 @@
+﻿.content-wrapper {
+    background-color: #ffffff;
+}
+
+.sidebar{
+    background: #000000;
+}
+.ppp {
+    
+    color: #ffffff !important;
+}
+
+.main-header {
+    background:  #dbdbdb;
+    
+}
+
+.main-sidebar {
+    background: #000000;
+}
+
+.contenedor-index {
+    margin-left: 10px;
+    margin-top:  10px;
+}
+
+h2 {
+    width: 30em;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: type 8s steps(206, end);
+    animation-iteration-count: infinite;
+    color: #000000 !important;
+}
+
+@keyframes type {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    to {
+        opacity: .0;
+    }
+}

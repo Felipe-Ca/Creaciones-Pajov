@@ -1,0 +1,38 @@
+﻿@model CreacionesPajov.WEB.Models.Dtos.Usuarios.RegistrarUsuarioDto
+
+@{
+    Layout = null;
+}
+<link rel="icon" href="~/adminlte/dist/img/fav.ico">
+<form asp-action="Crear" autocomplete="off" id="formulario" onsubmit="return jQueryAjaxPost(this,'Crear usuario', '¿Desea crear el usuario?');">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="input-crear form-control" />
+                <span asp-validation-for="Email" class="text-danger error"></span>
+            </div>
+            <div class="form-group column2">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="input-crear form-control" />
+                <span asp-validation-for="Password" class="text-danger error"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="ConfirmarPassword" class="control-label"></label>
+                <input asp-for="ConfirmarPassword" class="input-crear-td form-control" />
+                <span asp-validation-for="ConfirmarPassword" class="text-danger error"></span>
+            </div>
+        </div>
+        <br />
+        <center>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn boton-crear btn-block" />
+            </div>
+        </center>
+</form>
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

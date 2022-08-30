@@ -1,0 +1,32 @@
+﻿.btn-emp {
+   
+    background-color: #000000 !important;
+    color: white !important;
+}
+
+.contenedor-tabla {
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+.letra-table {
+    color: #6f6f6f;
+}
+
+.badge-act {
+    background-color: #26798E;
+    color: white;
+}
+
+.badge-desc {
+    background-color: #858585;
+    color: white;
+}
+
+.color-icono1 {
+    color: #26798E;
+}
+
+.color-icono2 {
+    color: #6f6f6f;
+}

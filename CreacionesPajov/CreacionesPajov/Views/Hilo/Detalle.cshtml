@@ -1,0 +1,48 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Hilo
+@{
+    Layout = null;
+}
+
+
+
+
+<body style="background-color: #eee;">
+    <form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <center>
+            <br />
+            <table style="width:650px;" class="detalle table-striped">
+                <tbody>
+                    <tr>
+                        <td><label asp-for="Descripcion" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Descripcion </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Cantidad" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Cantidad</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Fecha" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Fecha</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Medida" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.Medida </div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ColorHiloId" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.ColoresHilos.Nombre</div></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ProveedorHiloId" class="control-label"></label></td>
+                        <td><div class="model-detalle">@Model.ProveedoresHilo.Nombre</div></td>
+                    </tr>
+
+                </tbody>
+            </table><br />
+        </center>
+    </form>
+</body>
+
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

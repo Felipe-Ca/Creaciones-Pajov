@@ -1,0 +1,87 @@
+﻿@model CreacionesPajov.WEB.Models.Dtos.Usuarios.LoginDto
+@{ Layout = null; }
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login-Creaciones Pajov</title>
+    <link rel="icon" href="~/adminlte/dist/img/fav.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <link rel="stylesheet" href="~/adminlte/plugins/fontawesome-free/css/all.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+
+<body style="background-color: #eeeeee">
+
+
+    <section>
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <div class="text-center">
+                                        <img src="~/adminlte/dist/img/logo2.jpg" style="width: 185px;" alt="">
+                                        <h4 class="mt-1 mb-5 pb-1">Creaciones PAJOV</h4>
+                                    </div>
+                                
+
+
+                                    <form asp-action="Login" asp-controller="Usuarios" method="post">
+
+
+                                        <div class="form-outline mb-4">
+                                            <input asp-for="Email" class="input-login form-control" />
+                                            <label class="form-label" for="form2Example11">Correo</label>
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="password" asp-for="Password" class="input-login form-control" />
+                                            <label class="form-label" for="form2Example22">Contraseña</label>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="text-center pt-1 mb-4 pb-1">
+                                            <input asp-for="RecordarMe" type="checkbox" id="remember" />
+                                            <label for="remember">
+                                                Recordar
+                                            </label>
+                                        </div>
+
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <button type="submit" class="btn boton-crear btn-block">Iniciar Sesión</button> <br />
+
+                                            <a asp-action="OlvidePassword" class="text-muted">¿Olvidaste tu contraseña?</a>
+                                        </div>
+
+
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="der col-lg-6 d-flex align-items-center">
+
+                                <img style="height:800px; width: 800px;" src="~/adminlte/dist/img/log.png" />
+                          
+
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br /><br /><br /><br />
+    </section>
+
+
+</body>

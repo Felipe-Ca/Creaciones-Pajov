@@ -1,0 +1,49 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.Remision
+@{
+    Layout = null;
+}
+
+<body style="background-color: #eee;">
+
+    <form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <center><br />
+            <table class="detalle table-striped">
+                <tbody>
+                    <tr>
+                        <td><label asp-for="CantidadPrendas" class="control-label"></label></td>
+                        <td>@Model.CantidadPrendas</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Direccion" class="control-label"></label></td>
+                        <td>@Model.Direccion</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Encargado" class="control-label"></label></td>
+                        <td>@Model.Encargado</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="FechaLlegada" class="control-label"></label></td>
+                        <td>@Model.FechaLlegada</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="FechaSalida" class="control-label"></label></td>
+                        <td>@Model.FechaSalida</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Observacion" class="control-label"></label></td>
+                        <td>@Model.Observacion</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="FaseId" class="control-label"></label></td>
+                        <td>@Model.Fases.Nombre</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+        <br />
+    </form>
+</body>
+
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

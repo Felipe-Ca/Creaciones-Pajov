@@ -1,0 +1,264 @@
+﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <a href="index3.html" class="brand-link">
+        <img src="~/adminlte/dist/img/byn.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Creaciones Pajov</span>
+    </a>
+
+    <div class="sidebar">
+
+    
+
+        @*   <div class="form-inline">
+                <div class="input-group" data-widget="sidebar-search">
+                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-sidebar">
+                            <i class="fas fa-search fa-fw"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>*@
+
+        <nav class="mt-2">
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item ">
+                    <a class="nav-link ">
+                        <i class="fa-solid fa-house-user"></i>
+                        <p>
+                            Administradores
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Usuarios" class="nav-link  active">
+                                <i class="fa-solid fa-users"></i>
+                                <p>Usuarios</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Roles" class="nav-link active">
+                                <i class="fa-solid fa-id-card"></i>
+                                <p>Crear roles</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
+                <li class="nav-item">
+                    <a asp-action="Index" asp-controller="Empleados" class="nav-link">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <p>
+                            Empleados
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link ">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <p>
+                            Proveedores
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="ProveedorTelas" class="nav-link  active">
+                                <i class="fas fa-brush"></i>
+                                <p>Proveedor de telas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="ProveedorHilos" class="nav-link active">
+                                <i class="fas fa-paint-brush"></i>
+                                <p>Proveedor de hilos</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link">
+                        <i class="fa-solid fa-fax"></i>
+                        <p>
+                            Producción
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Produccion" class="nav-link active">
+                                <i class="fa-solid fa-check-to-slot"></i>
+                                <p>
+                                    Producción
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Operaciones" class="nav-link active">
+                                <i class="fa-solid fa-gear"></i>
+                                <p>
+                                    Operaciones
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Fases" class="nav-link active">
+                                <i class="fa-solid fa-border-all"></i>
+                                <p>
+                                    Fases
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="SubFases" class="nav-link active">
+                                <i class="fa-solid fa-border-none"></i>
+                                <p>
+                                    SubFases
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Remisiones" class="nav-link active">
+                                <i class="fa-brands fa-wpforms"></i>
+                                <p>
+                                    Remisiones
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="ColorTelas" class="nav-link active">
+                                <i class="fas fa-brush"></i>
+                                <p>
+                                    Color Telas
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="ColorHilos" class="nav-link active">
+                                <i class="fa-solid fa-paintbrush"></i>
+                                <p>
+                                    Color Hilos
+                                </p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="TipoPrendas" class="nav-link active">
+                                <i class="fa-solid fa-shirt"></i>
+                                <p>
+                                    Tipo Prendas
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Hilo" class="nav-link active">
+
+                                <i class="fa-solid fa-scissors"></i>
+                                <p>
+                                    Hilos
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Tela" class="nav-link active">
+
+                                <i class="fa-solid fa-shirt"></i>
+                                <p>
+                                    Telas
+                                </p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="DetalleHilo" class="nav-link active">
+
+                                <i class="fa-solid fa-check-to-slot"></i>
+                                <p>
+                                    Control Lotes: hilos
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="DetalleTela" class="nav-link active">
+
+                                <i class="fa-solid fa-check-to-slot"></i>
+                                <p>
+                                    Control Lotes: telas
+                                </p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link ">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <p>
+                            Novedades
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="TipoNovedadEmpleados" class="nav-link  active">
+                                <i class="fa-solid fa-bell"></i>
+                                <p>Novedades de empleados</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link ">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <p>
+                            Reportes
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Reportes" class="nav-link  active">
+                                <i class="fas fa-brush"></i>
+                                <p>Reportes Empleados Habilitados</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="ReportesEmpleadosInactivos" class="nav-link active">
+                                <i class="fas fa-paint-brush"></i>
+                                <p>Reportes Empleados Inhabilitados</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+</aside>
+
+<aside class="control-sidebar control-sidebar-dark">
+    <div class="p-3">
+        <h5>Title</h5>
+        <p>Sidebar content</p>
+    </div>
+</aside>

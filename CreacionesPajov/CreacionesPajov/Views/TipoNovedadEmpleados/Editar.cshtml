@@ -1,0 +1,61 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.TipoNovedadEmpleado
+@{ Layout = null; }
+
+<style>
+    span.text-danger.field-validation-error, #EmpleadoId-error, #Descripcion-error {
+        font-size: 13px;
+    }
+</style>
+
+
+<h1>@ViewBag.Titulo</h1>
+<br />
+
+<input type="hidden" asp-for="TipoNovedadEmpleadoId" />
+
+<body style="background-color: #eee;">
+
+    <form asp-action="Editar" id="formulario" onsubmit="return jQueryAjaxPost(this, 'Editar Novedad Empleado','¿Desea Editar La Novedad Del Empleado?'); ">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="column">
+                <div class="form-group">
+                    <label asp-for="EmpleadoId" class="control-label"></label>
+                    <select asp-for="EmpleadoId" asp-items="ViewBag.Empleado" class="input-editar form-control">
+                        <option disabled selected>----Seleccione----</option>
+                    </select>
+                    <span asp-validation-for="EmpleadoId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="form-group column2">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input type="text" asp-for="Descripcion" class="input-editar form-control" />
+                    <input type="hidden" asp-for="TipoNovedadEmpleadoId" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <center>
+            <div class="form-group">
+                <input type="submit" value="Editar Novedad Empleado" class="btn boton-editar" />
+            </div>
+        </center>
+        <br />
+    </form>
+
+</body>
+
+@*<form asp-action="Crear">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="from-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input type="text" asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </form>*@
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

@@ -1,0 +1,37 @@
+﻿@model CreacionesPajov.WEB.Models.Entities.SubFase
+@{
+    Layout = null;
+} 
+
+<body style="background-color: #eee;">
+    <form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <center><br />
+            <table class="detalle table-striped">
+                <tbody>
+                    <tr>
+                        <td><label asp-for="Nombre" class="control-label"></label></td>
+                        <td> @Model.Nombre</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Descripcion" class="control-label"></label></td>
+                        <td>@Model.Descripcion</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="OperacionId" class="control-label"></label></td>
+                        <td>@Model.Operaciones.Nombre</td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="FaseId" class="control-label"></label></td>
+                        <td>@Model.Fases.Nombre</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+        <br />
+    </form>
+
+</body>
+
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")
